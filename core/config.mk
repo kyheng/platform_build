@@ -337,7 +337,18 @@ else
 COLUMN:= column
 endif
 
-OLD_FLEX := prebuilts/misc/$(HOST_PREBUILT_TAG)/flex/flex-2.5.4a$(HOST_EXECUTABLE_SUFFIX)
+dir := $(shell uname)
+ifeq ($(HOST_OS),windows)
+dir := $(HOST_OS)
+endif
+ifeq ($(HOST_OS),darwin)
+dir := $(HOST_OS)-$(HOST_ARCH)
+endif
+ifneq ($(strip $(wildcard prebuilt/$(HOST_PREBUILT_EXTRA_TAG)/flex/flex-2.5.4a$(HOST_EXECUTABLE_SUFFIX))),)
+OLD_FLEX := prebuilt/$(HOST_PREBUILT_EXTRA_TAG)/flex/flex-2.5.4a$(HOST_EXECUTABLE_SUFFIX)
+else
+OLD_FLEX := prebuilt/$(HOST_PREBUILT_TAG)/flex/flex-2.5.4a$(HOST_EXECUTABLE_SUFFIX)
+endif
 
 ifeq ($(HOST_OS),darwin)
 # Mac OS' screwy version of java uses a non-standard directory layout
