@@ -11,32 +11,20 @@ endif
 
 # Add the ARM toolchain bin dir if it actually exists
 ifeq ($(TARGET_ARCH),arm)
-    ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_EXTRA_TAG)/arm/arm-linux-androideabi-$(TARGET_GCC_VERSION)/bin),)
+    ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-linux-androideabi-$(TARGET_GCC_VERSION)/bin),)
         # this should be copied to HOST_OUT_EXECUTABLES instead
-        ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_EXTRA_TAG)/arm/arm-linux-androideabi-$(TARGET_GCC_VERSION)/bin
-    else
-        ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-linux-androideabi-$(TARGET_GCC_VERSION)/bin),)
-            # this should be copied to HOST_OUT_EXECUTABLES instead
-            ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-linux-androideabi-$(TARGET_GCC_VERSION)/bin
+        ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-linux-androideabi-$(TARGET_GCC_VERSION)/bin
     endif
-    ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_EXTRA_TAG)/arm/arm-eabi-$(TARGET_GCC_VERSION)/bin),)
+    ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-eabi-$(TARGET_GCC_VERSION)/bin),)
         # this should be copied to HOST_OUT_EXECUTABLES instead
-        ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_EXTRA_TAG)/arm/arm-eabi-$(TARGET_GCC_VERSION)/bin
-    else
-        ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-eabi-$(TARGET_GCC_VERSION)/bin),)
-            # this should be copied to HOST_OUT_EXECUTABLES instead
-            ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-eabi-$(TARGET_GCC_VERSION)/bin
+        ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-eabi-$(TARGET_GCC_VERSION)/bin
     endif
 else ifeq ($(TARGET_ARCH),x86)
 
 # Add the x86 toolchain bin dir if it actually exists
-    ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_EXTRA_TAG)/x86/i686-linux-android-$(TARGET_GCC_VERSION)/bin),)
+    ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/x86/i686-linux-android-$(TARGET_GCC_VERSION)/bin),)
         # this should be copied to HOST_OUT_EXECUTABLES instead
-        ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_EXTRA_TAG)/x86/i686-linux-android-$(TARGET_GCC_VERSION)/bin
-    else
-        ifneq ($(wildcard $(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/x86/i686-linux-android-$(TARGET_GCC_VERSION)/bin),)
-            # this should be copied to HOST_OUT_EXECUTABLES instead
-            ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/x86/i686-linux-android-$(TARGET_GCC_VERSION)/bin
+        ABP:=$(ABP):$(PWD)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/x86/i686-linux-android-$(TARGET_GCC_VERSION)/bin
     endif
 endif
 
