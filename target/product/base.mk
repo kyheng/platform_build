@@ -26,7 +26,6 @@ PRODUCT_PACKAGES += \
     bmgr \
     bugreport \
     content \
-    dbus-daemon \
     dhcpcd \
     dhcpcd-run-hooks \
     dnsmasq \
@@ -44,7 +43,6 @@ PRODUCT_PACKAGES += \
     libcamera_client \
     libcameraservice \
     libchromium_net \
-    libdbus \
     libdl \
     libdrm1 \
     libdrm1_jni \
@@ -79,8 +77,9 @@ PRODUCT_PACKAGES += \
     libutils \
     libvisualizer \
     libvorbisidec \
-    libwebcore \
     libwpa_client \
+    media \
+    media_cmd \
     mediaserver \
     monkey \
     mtpd \
@@ -88,6 +87,7 @@ PRODUCT_PACKAGES += \
     netcfg \
     netd \
     ping \
+    ping6 \
     platform.xml \
     pppd \
     pm \
@@ -102,7 +102,9 @@ PRODUCT_PACKAGES += \
     system_server \
     tc \
     vdc \
-    vold
+    vold \
+    webview \
+    wm
+
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/embedded.mk)
-

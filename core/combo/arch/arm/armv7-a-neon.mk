@@ -6,11 +6,17 @@ ARCH_ARM_HAVE_VFP               := true
 ARCH_ARM_HAVE_VFP_D32           := true
 ARCH_ARM_HAVE_NEON              := true
 
-# Note: Hard coding the 'tune' value here is probably not ideal,
-# and a better solution should be found in the future.
-#
-arch_variant_cflags := \
-    -march=armv7-a \
+ifeq ($(strip $(TARGET_CPU_VARIANT)), cortex-a15)
+	arch_variant_cflags := -mcpu=cortex-a15
+else
+ifeq ($(strip $(TARGET_CPU_VARIANT)),cortex-a7)
+	arch_variant_cflags := -mcpu=cortex-a7
+else
+	arch_variant_cflags := -march=armv7-a
+endif
+endif
+
+arch_variant_cflags += \
     -mfloat-abi=softfp \
     -mfpu=neon
 
